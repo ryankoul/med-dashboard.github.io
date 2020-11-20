@@ -1,16 +1,8 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+I studied economics and philosophy in college but graduated without the ability to apply my knowledge to real-world problems, like analyzing messy data. I could do math and write, but not code, and my interest in law (read: centuries of spaghetti code) waned the more I learned about it.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
-
-What else do you need?
-
-### my history
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+Since then, I've come to love data science and data engineering. I now have familiarity with the whole data pipeline: collecting, querying, storing, cleaning, analyzing, visualizing, modeling, and communicating data to technical or non-technical people. Scraping, regular expressions, predictive modeling, and writing clean code are my biggest strengths, but I'm always learning something new.
