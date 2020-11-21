@@ -3,6 +3,40 @@ layout: page
 title: About me
 ---
 
-I studied economics and philosophy in college but graduated without the ability to apply my knowledge to real-world problems, like analyzing messy data. I could do math and write, but not code, and my interest in law (read: centuries of spaghetti code) waned the more I learned about it.
-
-Since then, I've come to love data science and data engineering. I now have familiarity with the whole data pipeline: collecting, querying, storing, cleaning, analyzing, visualizing, modeling, and communicating data to technical or non-technical people. Scraping, regular expressions, predictive modeling, and writing clean code are my biggest strengths, but I'm always learning something new.
+# About me 👋
+- 👨‍💻 Background:
+    - I studied economics and philosophy in college
+    - I learned how to write and do math, but not code. Most economics-y analysis jobs were beyond my skill level
+    - So I dove into data science and engineering to upskill, and now have familiarity with the whole data pipeline
+    - tl;dr 📜📈📉 ➡️ 🧽🤖📊
+- 📝 Past work:
+    - [Medium](https://medium.com/@ryan.koul)
+    - [Portfolio](https://ryankoul.github.io/).
+- ❤️‍🔥 Passions:
+    - Deep learning
+    - Regular expressions
+    - Algorithms
+    - Economics
+    - Clean(er) code
+- 🌐 Languages:
+    - Python
+    - SQL
+- 🤹 Skills:
+    - Collecting data via scraping (BeautifulSoup4) or pulling from APIs
+    - Cleaning data via regular expressions and pandas profiling
+    - Creating and deploying databases via SQL, Heroku, and/or AWS
+    - Analyzing data via numpy & pandas
+    - Visualizing data via matplotlib, seaborn, plotly, and altair
+    - Modeling data via feature selection, scikit-learn, Keras, and TensorFlow
+    - Communicating data to technical or non-technical people
+    - Data Structures & Algorithms, particularly hash maps
+- 🌱 Currently learning:
+    - Zsh 🐚
+    - MySQL
+- 🗣️ Feedback from others:
+    - "within the top tier of high quality problem solvers, leaders, and to call him an employee feels like understating his ability"
+    - "best quality is his go git it attitude. He's not afraid to take risks."
+    - "very intelligent worker who is proactive, methodical and organized in everything he does. He can adapt to and excel in any work environment."
+- 📫 Contact:
+    - [Email](ryan.koul@gmail.com)
+    - [LinkedIn](https://www.linkedin.com/in/ryankoul/)
