@@ -4,18 +4,17 @@ title: About me 👋
 ---
 
 - 👨‍💻 **Background**
-    - Studied economics and philosophy in college
-    - While there I learned to write and do math, but not code, so most economics-y jobs were beyond my skill level
-    - I dove into data science and engineering to upskill and now have familiarity with the whole data pipeline
-    - tl;dr 📜📈📉 ➡️➡️➡️ 🧽🤖📊
+    - Studied economics 📈 and philosophy 📜 in college
+    - While there I learned to write and do math, but not code, so most economics-y jobs were beyond my skill level 📉
+    - I dove into data science and engineering to upskill and now have familiarity with the whole data pipeline 🧽🤖📊
 - 📝 **Past work**
     - [Medium](https://ryan-koul.medium.com/)
     - [Linkedin](https://www.linkedin.com/in/ryankoul/)
 - 🔥 **Passions**
     - Deep learning
     - Clean(er) code
-    - Space
     - Hiking
+    - Space colonization and exploration
 - 🌐 **Languages**
     - Python
     - SQL
@@ -45,5 +44,5 @@ title: About me 👋
     - "very intelligent worker who is proactive, methodical and organized in everything he does. He can adapt to and excel in any work environment."
     - "best quality is his go git it attitude. He's not afraid to take risks."
 - 📫 **Contact**
-    - [Email](ryan.koul@gmail.com)
+    - [Email](mailto:ryan.koul@gmail.com)
     - [LinkedIn](https://www.linkedin.com/in/ryankoul/)
