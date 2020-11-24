@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Predicting Great Books from Goodreads Data Using Python
-subtitle: What makes a book great?
 ---
 ![books](https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80)Photo of old books by [Ed Robertson](https://unsplash.com/@eddrobertson) on [Unsplash](https://unsplash.com/)
 
@@ -14,7 +13,10 @@ From the reader's perspective, books are a multi-hour commitment of learning and
 ## Environment
 It's good practice to work in a virtual environment, a sandbox with its own libraries and versions, so we'll make one for this project. There are several ways to do this, but we'll use [Anaconda](https://www.anaconda.com/products/individual). To create and activate an Anaconda virtual environment called 'gr' (for Goodreads) using Python 3.7, run the following commands in your terminal or command line:
 
-{% gist 26f74ac8a2df83aa02f7e688fc06651a %}
+```python
+conda create -n gr python=3.7
+conda activate gr
+```
 
 # Installations
 You should see ‘gr’ or whatever you named your environment at the left of your prompt. If so, run these commands. Anaconda will automatically install any dependencies of these packages, including matplotlib, numpy, pandas, and scikit-learn.
@@ -23,10 +25,10 @@ You should see ‘gr’ or whatever you named your environment at the left of yo
 conda install category_encoders eli5 py-xgboost seaborn
 pip install goodreads_api_client
 ```
-<script src="https://gist.github.com/ryankoul/c3ce2d189f2ca640224dbb66ff0c9c67.js"></script>
 
 # Imports
-```python import pandas as pd
+```python
+import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -53,7 +55,7 @@ from eli5.sklearn import PermutationImportance
 We pull the first 50,000 book ids and their associated information using a lightweight wrapper around the Goodreads API made by [Michelle D. Zhang](https://medium.com/@mdzhang) (code and documentation [here](https://github.com/mdzhang/goodreads-api-client-python)), then write each as a dictionary to a JSON file called `book_data`.
 
 ```python
-mport json
+import json
 import time
 import goodreads_api_client as gr
 
@@ -127,6 +129,7 @@ def wilson_lower_bound(average_rating, n, confidence=0.95):
     Returns the lower bound of the "true" 5-star rating. Used to scale down
     ratings with fewer observations due to the greater uncertainty (wider
     confidence interval).
+
     Parameters:
     average_rating: the average book rating, assumed to be out of 5
     n: the total number of ratings
@@ -346,7 +349,7 @@ print(X_train.shape, y_train.shape, X_val.shape,
 # Evaluation Metrics
 With classes this imbalanced, accuracy (correct predictions / total predictions) can become misleading. There just aren’t enough true positives for this fraction to be the best measure of model performance. So we’ll also use ROC AUC, a Receiver Operator Characteristic Area Under the Curve. Here is a colored drawing of one, courtesy of Martin Thoma.
 
-![ROC-AUC](../img/great-reads/roc_auc.png)
+![ROC-AUC](../img/great_reads/roc_auc.png)
 
 The ROC curve is a plot of a classification model’s true positive rate (TPR) against its false positive rate (FPR). The ROC AUC is the area from [0, 1] under and to the right of this curve. Since optimal model performance maximizes true positives and minimizes false positives, the optimal point in this 1x1 plot is the top left, where the area under the curve (ROC AUC) = 1.
 
@@ -517,7 +520,22 @@ Below, we see that logistic regression lags far behind XGBoost and Random Forest
 
 In less technical language, the XGBoost model was the best at classifying great books as great (true positives) and not classifying not-great books as great (false positives).
 
-<script src="https://gist.github.com/ryankoul/505724d82b149a7693c3dddbe77814c8.js"></script>
+```python
+plt.style.use('ggplot')
+fig, ax = plt.subplots(figsize=(15, 10))
+plot_roc_curve(lr, X_test, y_test, name='Logistic Regression', color='g', ax=ax)
+plot_roc_curve(rf, X_test, y_test, name='Random Forest', ax=ax)
+plot_roc_curve(gb, X_test, y_test, name='XGBoost', color='b', ax=ax)
+
+plt.figtext(.5,.9, 'ROC AUC of Models for Predicting Great Books',
+            fontsize=20, ha='center')
+plt.xticks(fontsize=15, color='k')
+plt.yticks(fontsize=15, color='k')
+plt.xlabel('False Positive Rate', fontsize=15, color='k')
+plt.ylabel('True Positive Rate', fontsize=15, color='k')
+
+plt.show()
+```
 
 ![roc-auc-of-all-models](../img/great_reads/roc_auc_of_all_models.png)
 
@@ -528,10 +546,37 @@ But in the real world with real constrains, we can use permutation instead. Inst
 
 Let’s take a closer look at the permutation importances of our XGBoost model. We’ll have to refit it to be compatible with eli5.
 
-<script src="https://gist.github.com/ryankoul/5c4f83686ee396990e9084a6034cdd98.js"></script>
+```python
+transformers = make_pipeline(
+    ce.OrdinalEncoder(),
+    SimpleImputer()
+)
+
+X_train_transformed = transformers.fit_transform(X_train)
+X_val_transformed = transformers.transform(X_val)
+
+# Pull out model because that's what eli5 expects
+model = XGBClassifier(n_estimators=1000, random_state=50, n_jobs=-1)
+model.fit(X_train_transformed, y_train)
+
+
+permuter = PermutationImportance(
+    model,
+    scoring='roc_auc',
+    n_iter=5,           # run each permutation 5 times, then take average
+    random_state=50)    # seed for reproducibility
+
+permuter.fit(X_val_transformed, y_val)
+
+feature_names = X_val.columns.tolist()
+eli5.show_weights(permuter,
+                  top=None,
+                  feature_names=feature_names)
+```
 
 ## Permutation Importance Analysis
 ![permutation-importance](../img/great_reads/permutation_importances.png)
+
 As we assumed at the beginning, `review_count` matters but it is not suspiciously high. This does not seem to rise to the level of data leakage. What this means is that if you were wondering what book to read next, a useful indicator is how many reviews it has, a proxy for how many others have read it.
 
 We see that `genres` is the second most important feature for ROC AUC in the XGBoost model.
