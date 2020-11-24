@@ -1,42 +1,49 @@
 ---
 layout: page
-title: About me
+title: About me 👋
 ---
 
-# About me 👋
-- 👨‍💻 Background:
-    - I studied economics and philosophy in college
-    - I learned how to write and do math, but not code. Most economics-y analysis jobs were beyond my skill level
-    - So I dove into data science and engineering to upskill, and now have familiarity with the whole data pipeline
-    - tl;dr 📜📈📉 ➡️ 🧽🤖📊
-- 📝 Past work:
-    - [Medium](https://medium.com/@ryan.koul)
-    - [Portfolio](https://ryankoul.github.io/).
-- ❤️‍🔥 Passions:
+- 👨‍💻 **Background**
+    - Studied economics and philosophy in college
+    - While there I learned to write and do math, but not code, so most economics-y jobs were beyond my skill level
+    - I dove into data science and engineering to upskill and now have familiarity with the whole data pipeline
+    - tl;dr 📜📈📉 ➡️➡️➡️ 🧽🤖📊
+- 📝 **Past work**
+    - [Medium](https://ryan-koul.medium.com/)
+    - [Linkedin](https://www.linkedin.com/in/ryankoul/)
+- 🔥 **Passions**
     - Deep learning
-    - Regular expressions
-    - Algorithms
-    - Economics
     - Clean(er) code
-- 🌐 Languages:
+    - Space
+    - Hiking
+- 🌐 **Languages**
     - Python
     - SQL
-- 🤹 Skills:
+- 🤹 **Skills**
     - Collecting data via scraping (BeautifulSoup4) or pulling from APIs
-    - Cleaning data via regular expressions and pandas profiling
+    - Cleaning data via binning, regular expressions and Pandas Profiling
     - Creating and deploying databases via SQL, Heroku, and/or AWS
-    - Analyzing data via numpy & pandas
-    - Visualizing data via matplotlib, seaborn, plotly, and altair
-    - Modeling data via feature selection, scikit-learn, Keras, and TensorFlow
-    - Communicating data to technical or non-technical people
-    - Data Structures & Algorithms, particularly hash maps
-- 🌱 Currently learning:
+    - Creating and deploying APIs via Flask or FastAPI
+    - Analyzing data via Numpy & Pandas
+    - Visualizing data via Matplotlib, Seaborn, Plotly, and/or Altair
+    - Modeling data via feature selection & engineering, Scikit-Learn, Keras, and/or TensorFlow
+    - Communicating data to technical and non-technical people
+    - Data structures & algorithms, particularly hash maps
+- 🌱 **Currently learning**
     - Zsh 🐚
     - MySQL
-- 🗣️ Feedback from others:
+- 📚 **Some favorite books**
+    - [The Age of Em - Robin Hanson](https://ageofem.com/)
+    - [The Elephant in the Brain - Robin Hanson and Kevin Simler](http://elephantinthebrain.com/)
+    - [The Obesity Code - Jason Fung](https://www.amazon.com/Obesity-Code-Unlocking-Secrets-Weight-ebook/dp/B01C6D0LCK)
+- 🎵 **Some favorite songs**
+    - [Zelda: Ocarina of Time Piano Medley (Extended) Nostalgia Edition - Erik Correll](https://www.youtube.com/watch?v=bUMS8Ut9ybA)
+    - [Space Song (slowed + reverb) - Beach House](https://www.youtube.com/watch?v=QCIGciNcCbU)
+    - [Blade Runner Blues - Vangelis](https://www.youtube.com/watch?v=ECYLHiXvrBQ)
+- 🗣️ **Feedback from others**
     - "within the top tier of high quality problem solvers, leaders, and to call him an employee feels like understating his ability"
-    - "best quality is his go git it attitude. He's not afraid to take risks."
     - "very intelligent worker who is proactive, methodical and organized in everything he does. He can adapt to and excel in any work environment."
-- 📫 Contact:
+    - "best quality is his go git it attitude. He's not afraid to take risks."
+- 📫 **Contact**
     - [Email](ryan.koul@gmail.com)
     - [LinkedIn](https://www.linkedin.com/in/ryankoul/)
